@@ -6,7 +6,7 @@ export default {
     samples: [
       {
         content: 'He declares that he heard cries but is unable to state from what direction they came.',
-        matchingWords: [
+        scopes: [
           true, false, false, false, false, false, false, true, true, true, true, true, true, true, true, true, false
         ],
         cues: [
@@ -15,7 +15,7 @@ export default {
       },
       {
         content: 'There is neither money nor credit in it, and yet one would wish to tidy it up.',
-        matchingWords: [
+        scopes: [
           true, true, true, true, true, true, true, false, false, false, false, false, false, false, false, false, false, false
         ],
         cues: [

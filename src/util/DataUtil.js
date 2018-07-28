@@ -27,8 +27,8 @@ class DataUtil {
     }
     return result
   }
-  convertWordByMatching (word, matchingWord, startTag, endTag) {
-    if (!matchingWord) {
+  convertWordByScope (word, scope, startTag, endTag) {
+    if (!scope) {
       return `${word} `
     }
     return `${startTag}${word} ${endTag}`

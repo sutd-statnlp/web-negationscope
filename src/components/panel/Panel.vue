@@ -19,7 +19,7 @@ export default {
     }
   },
   methods: {
-    convertWordByCue (word, cue, matchingWord) {
+    convertWordByCue (word, cue, scope) {
       word = dataUtil.convertWordByCue(
         word,
         cue,
@@ -28,28 +28,28 @@ export default {
       )
       return word
     },
-    convertWordByMatching (word, cue, matchingWord) {
-      word = dataUtil.convertWordByMatching(
+    convertWordByScope (word, cue, scope) {
+      word = dataUtil.convertWordByScope(
         word,
-        matchingWord,
+        scope,
         `<span class="orange--text text--darken-3">`,
         `</span>`
       )
       return word
     },
-    convertWord (word, cue, matchingWord, hasCues, hasMatchingWords) {
+    convertWord (word, cue, scope, hasCues, hasScopes) {
       let convertedWord = word + ' '
       if (hasCues) {
         convertedWord = this.convertWordByCue(
           convertedWord,
           cue,
-          matchingWord)
+          scope)
       }
-      if (hasMatchingWords) {
-        convertedWord = this.convertWordByMatching(
+      if (hasScopes) {
+        convertedWord = this.convertWordByScope(
           convertedWord,
           cue,
-          matchingWord)
+          scope)
       }
       return convertedWord
     }
@@ -63,13 +63,13 @@ export default {
       let sentence = ''
       let words = result.content.split(' ')
       words = dataUtil.seperateSpecialChar(words)
-      let hasMatchingWords = result.matchingWords.length > 0
+      let hasScopes = result.scopes.length > 0
       let hasCues = result.cues.length > 0
       for (let index = 0; index < words.length; index++) {
         let word = words[index]
         let cue = result.cues[index]
-        let matchingWord = result.matchingWords[index]
-        let convertedWord = this.convertWord(word, cue, matchingWord, hasCues, hasMatchingWords)
+        let scope = result.scopes[index]
+        let convertedWord = this.convertWord(word, cue, scope, hasCues, hasScopes)
         sentence += convertedWord
       }
       return sentence

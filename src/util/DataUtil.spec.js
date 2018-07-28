@@ -45,14 +45,14 @@ describe('DataUtil.js', () => {
       expect(result).toEqual('Hello .')
     })
   })
-  describe('convertWordByMatching', () => {
+  describe('convertWordByScope', () => {
     it('should return converted word', () => {
-      let result = dataUtil.convertWordByMatching('Hello', true, '<span>', '</span>')
+      let result = dataUtil.convertWordByScope('Hello', true, '<span>', '</span>')
       expect(result).not.toBeNull()
       expect(result.length).toBeGreaterThan(0)
       expect(result).toEqual('<span>Hello </span>')
 
-      result = dataUtil.convertWordByMatching('Hello', false, '<span>', '</span>')
+      result = dataUtil.convertWordByScope('Hello', false, '<span>', '</span>')
       expect(result).not.toBeNull()
       expect(result.length).toBeGreaterThan(0)
       expect(result).toEqual('Hello ')

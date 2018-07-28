@@ -27,7 +27,7 @@
   </v-card-text>
   <v-card-actions>
     <v-spacer></v-spacer>
-    <v-btn id="btn-submit" color="primary" :loading="loading" :disabled="!validForm || loading" @click="submitAnalysis">Analyze</v-btn>
+    <v-btn id="btn-submit" color="primary" :loading="loading" :disabled="!validForm || loading" @click="submitAnalysis">Detect</v-btn>
   </v-card-actions>
   </v-form>
 </v-card>
@@ -44,7 +44,7 @@ export default {
       sentence: '',
       currentSentence: {
         content: `This person is alone and can not be approached by letter without a breach of that absolute secrecy.`,
-        matchingWords: [
+        scopes: [
         ],
         cues: [
         ]
