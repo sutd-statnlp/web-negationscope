@@ -6,11 +6,7 @@
 [![](https://images.microbadger.com/badges/image/statnlp/web-negationscope.svg)](https://microbadger.com/images/statnlp/web-negationscope)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/sutd-statnlp/web-negationscope/blob/master/LICENSE)
 
-## Features
-- VueJS 2, Vue Router 3, Vuex 3
-- Unit Test with Jest and Vue Test Utils
-- ES6, ESLint
-- CI with Travis, Docker Build
+This demo is developed based on the paper of [Learning with Structured Representations for Negation Scope Extraction](https://github.com/leodotnet/negationscope).
 
 ## Installation
 
