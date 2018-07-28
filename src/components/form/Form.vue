@@ -40,7 +40,6 @@ export default {
   data () {
     return {
       validForm: false,
-      loader: null,
       loading: false,
       sentence: '',
       currentSentence: {
@@ -78,28 +77,20 @@ export default {
       this.currentSentence = {...item}
     },
     submitAnalysis () {
-      this.loader = 'loading'
+      this.loading = true
+      setTimeout(() => {
+        this.currentSentence.cues = this.cues.values
+        this.$store.dispatch('sentence/analyze', {
+          sentence: this.currentSentence
+        })
+        this.loading = false
+      }, 1000)
     },
     isSpecialChar (word) {
       return dataUtil.isOrContainSpecialChar(word) !== null
     }
   },
   mounted () {
-  },
-  watch: {
-    loader () {
-      const l = this.loader
-      this[l] = !this[l]
-
-      setTimeout(() => {
-        this[l] = false
-        this.currentSentence.cues = this.cues.values
-        this.$store.dispatch('sentence/analyze', {
-          sentence: this.currentSentence
-        })
-        this.loader = null
-      }, 1000)
-    }
   }
 }
 </script>
