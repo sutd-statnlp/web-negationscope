@@ -1,7 +1,7 @@
 import Vuex from 'vuex'
 import { shallowMount, createLocalVue } from '@vue/test-utils'
 import OriginStore from '@/store'
-import HomePage from './HomePage'
+import Form from './Form'
 import filter from '@/filter'
 import Vuetify from 'vuetify'
 
@@ -10,18 +10,17 @@ localVue.use(Vuetify)
 localVue.use(filter)
 localVue.use(Vuex)
 
-describe('HomePage.vue', () => {
+describe('Form.vue', () => {
   let store
   beforeEach(() => {
     store = {...OriginStore}
   })
 
   it('should render correct contents', () => {
-    const wrapper = shallowMount(HomePage, {
+    const wrapper = shallowMount(Form, {
       store,
       localVue
     })
-    expect(wrapper)
-      .not.toEqual(null)
+    expect(wrapper).not.toEqual(null)
   })
 })

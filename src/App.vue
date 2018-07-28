@@ -1,8 +1,12 @@
 <template>
   <div id="app">
-    <Navbar/>
-    <router-view/>
-    <Footer/>
+    <v-app id="inspire">
+      <!-- <Navbar/> -->
+      <v-content>
+        <router-view/>
+      </v-content>
+      <!-- <Footer/> -->
+    </v-app>
   </div>
 </template>
 
