@@ -20,7 +20,7 @@
           required
           auto-grow prepend-icon="translate" name="sentence" label="Sentence" type="text"></v-textarea>
       <v-layout row wrap align-center justify-center>
-        <v-flex xs3 md1 class="ml-3" v-for="(item, index) in cues.words" :class="isSpecialChar(item) ? 'hidden-sm-and-up hidden-sm-and-down' : ''" :key="index">
+        <v-flex xs3 md1 class="ml-3" v-for="(item, index) in cues.words" :class="isSpecialChar(item) || !item ? 'hidden-sm-and-up hidden-sm-and-down' : ''" :key="index">
           <v-text-field v-model="cues.values[index]" :counter="item.length" :label="item" required></v-text-field>
         </v-flex>
       </v-layout>
