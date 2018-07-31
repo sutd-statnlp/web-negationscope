@@ -27,5 +27,6 @@ module.exports = {
     '!**/filter/index.js',
     '!src/store/**',
     '!temp/**'
-  ]
+  ],
+  testURL: 'http://localhost'
 }
