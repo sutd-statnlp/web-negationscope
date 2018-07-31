@@ -5,6 +5,11 @@
     <h2>
       <span v-html="sentence"></span>
     </h2>
+    <h4 class="font-weight-regular font-italic">
+      Negation scope (partial scopes) in <span class="orange--text text--darken-3">orange</span>,
+      negation cue in <span class="cyan--text text--darken-2">blue</span>,
+      gaps as non-orange spans
+    </h4>
   </v-layout>
 </v-card>
   </div>

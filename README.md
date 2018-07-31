@@ -16,7 +16,7 @@ npm install
 
 ```
 
-## Running the tests
+## Testing
 
 ``` bash
 # run unit tests
