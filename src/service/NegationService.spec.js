@@ -2,9 +2,9 @@ import negationService from './NegationService'
 
 describe('ServerService.js', () => {
   it('should return endpoint', () => {
-    let sentence = 'This is sample sentence'
+    let words = ['', '', '', '']
     let cues = ['', '', '', '']
-    let result = negationService.detect(sentence, cues)
+    let result = negationService.detect(words, cues)
     expect(result).not.toBeNull()
   })
 })

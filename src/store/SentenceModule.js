@@ -1,4 +1,5 @@
-
+import NegationService from '@/service/NegationService'
+import dataUtil from '@/util/DataUtil'
 export default {
   namespaced: true,
   state: {
@@ -11,7 +12,8 @@ export default {
         ],
         cues: [
           '', '', '', '', '', '', '', '', 'un', '', '', '', '', '', '', '', ''
-        ]
+        ],
+        words: ['He', 'declares', 'that', 'he', 'heard', 'cries', 'but', 'is', 'unable', 'to', 'state', 'from', 'what', 'direction', 'they', 'came', '.']
       },
       {
         content: 'There is neither money nor credit in it, and yet one would wish to tidy it up.',
@@ -39,8 +41,25 @@ export default {
   },
   actions: {
     analyze (context, payload) {
-      let result = payload.sentence
-      context.commit('analyze', {result: result})
+      let sentence = payload.sentence
+      let words = sentence.content.split(' ')
+      words = dataUtil.seperateSpecialChar(words)
+      let cues = sentence.cues
+      return new Promise((resolve, reject) => {
+        NegationService.detect(words, cues)
+          .then((response) => {
+            let result = {
+              words: words,
+              cues: cues,
+              scopes: response.data
+            }
+            context.commit('analyze', {result: result})
+            resolve('success')
+          }).catch((err) => {
+            console.error(err)
+            reject(err)
+          })
+      })
     }
   }
 }

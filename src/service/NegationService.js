@@ -2,10 +2,10 @@ import axios from 'axios'
 import apiService from './ApiService'
 
 export default {
-  detect (sentence, cues) {
+  detect (words, cues) {
     let url = apiService.getDetectEndpoint()
     return axios.post(url, {
-      sentence: sentence,
+      words: words,
       cues: cues
     })
   }

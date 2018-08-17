@@ -2,9 +2,11 @@
   <div class="panel">
 <v-card v-if="sentence" class="elevation-6">
   <v-layout row wrap pa-4>
-    <h2>
-      <span v-html="sentence"></span>
-    </h2>
+    <v-flex xs12>
+      <h2>
+        <span v-html="sentence"></span>
+      </h2>
+    </v-flex>
     <h4 class="font-weight-regular font-italic">
       Negation scope (partial scopes) in <span class="orange--text text--darken-3">orange</span>,
       negation cue in <span class="cyan--text text--darken-2">blue</span>,
@@ -66,8 +68,7 @@ export default {
         return null
       }
       let sentence = ''
-      let words = result.content.split(' ')
-      words = dataUtil.seperateSpecialChar(words)
+      let words = result.words
       let hasScopes = result.scopes.length > 0
       let hasCues = result.cues.length > 0
       for (let index = 0; index < words.length; index++) {

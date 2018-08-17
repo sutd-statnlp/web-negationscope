@@ -90,13 +90,12 @@ export default {
     },
     submitAnalysis () {
       this.loading = true
-      setTimeout(() => {
-        this.currentSentence.cues = this.cues.values
-        this.$store.dispatch('sentence/analyze', {
-          sentence: this.currentSentence
-        })
+      this.currentSentence.cues = this.cues.values
+      this.$store.dispatch('sentence/analyze', {
+        sentence: this.currentSentence
+      }).then(() => {
         this.loading = false
-      }, 1000)
+      })
     },
     isSpecialChar (word) {
       return dataUtil.isOrContainSpecialChar(word) !== null
